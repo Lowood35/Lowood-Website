@@ -834,28 +834,32 @@
   </script>
 <script>
 let reviewIndex = 0;
+
 function getVisible() {
   const w = window.innerWidth;
   if (w < 640) return 1; // mobile
   if (w < 1024) return 2; // tablet
-  return 3; // desktop
+  return 3;              // desktop
 }
+
 function shiftReviews(direction) {
   const slider = document.getElementById("reviewTrack");
   const cards = slider.children.length;
   const visible = getVisible();
   const cardWidth = slider.children[0].offsetWidth + 16; // include margin/gap
   const maxIndex = cards - visible;
+
   reviewIndex += direction;
   if (reviewIndex < 0) reviewIndex = 0;
   if (reviewIndex > maxIndex) reviewIndex = maxIndex;
+
   slider.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
 }
+
 window.addEventListener('resize', () => {
   reviewIndex = 0;
   document.getElementById("reviewTrack").style.transform = 'translateX(0)';
-});px)`;
-}
+});
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
