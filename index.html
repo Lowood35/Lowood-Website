@@ -16,14 +16,19 @@
 <style>
   * { box-sizing: border-box; }
   body { overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
 </style>
 <style>
+
    .hero-section {
-     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Website images/Dal lake_L15.jpg');
-     background-size: cover;
-     background-position: center;
-     height: 100vh;
-   }
+	  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Website images/Dal lake_L15.jpg');
+	  background-size: cover;
+	  background-position: center;
+	  min-height: 100vh;     /* safer than strict height */
+	  width: 100%;           /* ensures no horizontal overflow */
+	  overflow-x: hidden;    /* just in case */
+	}
+
    .room-card:hover {
      transform: translateY(-10px);
      transition: all 0.3s ease;
@@ -34,6 +39,11 @@
      background-repeat: no-repeat;
      background-size: cover;
    }
+   @media (max-width: 1024px) {
+	  .parallax {
+		background-attachment: scroll;
+	  }
+	}
   </style>
 <style>
 /* Review truncation styles */
