@@ -14,9 +14,24 @@
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script src="https://unpkg.com/feather-icons"></script>
 <style>
-  * { box-sizing: border-box; }
-  body { overflow-x: hidden; }
-  img { max-width: 100%; display: block; }
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+    max-width: 100vw; /* prevent horizontal overflow */
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+</style>
 </style>
 <style>
 
@@ -38,13 +53,29 @@
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
+	 overflow-x: hidden; /* extra safety */
    }
    @media (max-width: 1024px) {
 	  .parallax {
 		background-attachment: scroll;
 	  }
 	}
+	
   </style>
+<style>
+.slides {
+  display: flex;
+  flex-wrap: nowrap; /* don’t wrap into a new line */
+  width: 100%;
+  overflow-x: hidden; /* cut any overflow */
+}
+
+.slides img {
+  flex-shrink: 0; /* prevent shrinking that causes layout jumps */
+  width: 100%;    /* each image takes full container width */
+}
+
+</style>
 <style>
 /* Review truncation styles */
 .review-text {
@@ -61,7 +92,12 @@
   user-select: none;
 }
 .read-more:focus { outline: 2px solid rgba(37,99,235,0.25); }
-</style></head>
+</style>
+	#reviewTrack {
+	  overflow-x: hidden;
+	  max-width: 100%;
+	}
+</head>
 <body class="font-sans antialiased">
 <!-- Navigation -->
 <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
