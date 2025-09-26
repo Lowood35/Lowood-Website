@@ -99,10 +99,10 @@
      Nestled in the heart of Srinagar, Lowood Inn offers luxury accommodations at reasonable rates, with a warm and homely atmosphere.
     </p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a class="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-3 rounded-full font-medium text-lg inline-block transition duration-300" href="#book">
+<a class="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-3 rounded-full font-medium text-lg inline-block text-center transition duration-300" href="#book">
       Book Your Stay
      </a>
-<a class="border-2 border-white hover:bg-white/20 text-white px-8 py-3 rounded-full font-medium text-lg inline-block transition duration-300" href="#rooms">
+<a class="border-2 border-white hover:bg-white/20 text-white px-8 py-3 rounded-full font-medium text-lg inline-block text-center transition duration-300" href="#rooms">
       Explore Rooms
      </a>
 </div>
@@ -834,18 +834,27 @@
   </script>
 <script>
 let reviewIndex = 0;
+function getVisible() {
+  const w = window.innerWidth;
+  if (w < 640) return 1; // mobile
+  if (w < 1024) return 2; // tablet
+  return 3; // desktop
+}
 function shiftReviews(direction) {
   const slider = document.getElementById("reviewTrack");
   const cards = slider.children.length;
-  const visible = 3;
+  const visible = getVisible();
   const cardWidth = slider.children[0].offsetWidth + 16; // include margin/gap
   const maxIndex = cards - visible;
-
   reviewIndex += direction;
   if (reviewIndex < 0) reviewIndex = 0;
   if (reviewIndex > maxIndex) reviewIndex = maxIndex;
-
   slider.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
+}
+window.addEventListener('resize', () => {
+  reviewIndex = 0;
+  document.getElementById("reviewTrack").style.transform = 'translateX(0)';
+});px)`;
 }
 </script>
 <script>
