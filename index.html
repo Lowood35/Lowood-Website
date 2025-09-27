@@ -30,6 +30,9 @@
      background-repeat: no-repeat;
      background-size: cover;
    }
+   html, body {
+  overflow-x: hidden;
+}
   </style>
 <style>
 /* Review truncation styles */
@@ -86,6 +89,18 @@
 </i>
 </button>
 </div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" 
+     class="hidden md:hidden absolute top-20 left-0 w-full bg-white shadow-lg z-40">
+  <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50">Home</a>
+  <a href="#rooms" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50">Rooms</a>
+  <a href="#amenities" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50">Amenities</a>
+  <a href="#gallery" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50">Gallery</a>
+  <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50">Contact</a>
+  <a href="#book" class="block px-4 py-2 bg-emerald-700 text-white font-medium">Book Now</a>
+</div>
+
+
 </div>
 </div>
 </nav>
@@ -1115,6 +1130,18 @@ document.addEventListener('DOMContentLoaded', function() {
       p.style.overflow = 'visible';
     }
   });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector("nav button");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
 });
 </script></body>
 </html>
